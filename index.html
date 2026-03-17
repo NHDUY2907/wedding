@@ -16,21 +16,29 @@ body {
   scroll-behavior: smooth;
 }
 
+/* OVERLAY */
+#overlay {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: #000;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  text-align:center;
+}
+
 /* HERO */
 .hero {
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') center/cover;
+  background: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c') center/cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  text-align: center;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display';
-  font-size: 48px;
 }
 
 /* SECTION */
@@ -39,7 +47,7 @@ body {
   text-align: center;
 }
 
-h2 {
+h1,h2 {
   font-family: 'Playfair Display';
 }
 
@@ -103,6 +111,15 @@ h2 {
 
 <body>
 
+<!-- MÀN MỞ -->
+<div id="overlay">
+  <div>
+    <h2>💌 Thiệp cưới</h2>
+    <p>Hoài Phương & Hoàng Duy</p>
+    <p>(Nhấn để mở)</p>
+  </div>
+</div>
+
 <!-- HERO -->
 <div class="hero">
   <h1>Hoài Phương & Hoàng Duy</h1>
@@ -156,7 +173,7 @@ h2 {
   <a class="btn" href="tel:0123456789">Gọi xác nhận</a>
 </div>
 
-<!-- 🎵 NHẠC (FILE MP3 BẠN UP) -->
+<!-- NHẠC -->
 <audio id="music" loop preload="auto">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -165,6 +182,13 @@ h2 {
 <div class="music-btn" onclick="toggleMusic()">🎵</div>
 
 <script>
+// OVERLAY CLICK -> PHÁT NHẠC
+document.getElementById("overlay").onclick = function(){
+  const music = document.getElementById("music");
+  music.play();
+  this.style.display = "none";
+};
+
 // COUNTDOWN
 const targetDate = new Date("Mar 29, 2026 10:00:00").getTime();
 setInterval(() => {
@@ -176,7 +200,7 @@ setInterval(() => {
     days + " ngày " + hours + " giờ";
 }, 1000);
 
-// FADE SCROLL
+// FADE
 const faders = document.querySelectorAll('.fade');
 window.addEventListener('scroll', () => {
   faders.forEach(el => {
@@ -187,13 +211,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// CLICK ĐỂ PHÁT NHẠC
-document.addEventListener("click", function () {
-  const music = document.getElementById("music");
-  music.play();
-});
-
-// NÚT BẬT/TẮT NHẠC
+// TOGGLE MUSIC
 function toggleMusic(){
   const music = document.getElementById("music");
   if(music.paused) music.play();
