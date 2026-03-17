@@ -1,114 +1,205 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Thiệp cưới Hoài Phương & Hoàng Duy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: #fffaf7;
-      text-align: center;
-      color: #333;
-    }
-    .hero {
-      padding: 70px 20px;
-      background: url('https://i.imgur.com/3ZQ3ZQp.jpg') center/cover;
-      color: white;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      margin: 10px 0;
-    }
-    .section {
-      padding: 40px 20px;
-    }
-    .countdown {
-      font-size: 24px;
-      color: #c89b6d;
-      margin-top: 20px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      margin-top: 20px;
-      background: #c89b6d;
-      color: white;
-      border-radius: 25px;
-      text-decoration: none;
-    }
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding | Hoài Phương & Hoàng Duy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #fffaf7;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display';
+  font-size: 48px;
+}
+
+/* SECTION */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Playfair Display';
+}
+
+/* FADE */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ALBUM */
+.album {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 10px;
+}
+
+.album img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.album img:hover {
+  transform: scale(1.05);
+}
+
+/* COUNTDOWN */
+.countdown {
+  font-size: 28px;
+  color: #c89b6d;
+}
+
+/* BUTTON */
+.btn {
+  padding: 12px 25px;
+  background: #c89b6d;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+/* MUSIC BUTTON */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #c89b6d;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Trang đầu -->
-  <div class="hero">
-    <h2>Save The Date</h2>
-    <h1>Hoài Phương & Hoàng Duy</h1>
-    <p>29.03.2026</p>
+<!-- HERO -->
+<div class="hero">
+  <h1>Hoài Phương & Hoàng Duy</h1>
+  <p>29.03.2026</p>
+</div>
+
+<!-- GIỚI THIỆU -->
+<div class="section fade">
+  <h2>Trân trọng kính mời</h2>
+  <p>Tới tham dự lễ thành hôn của chúng tôi</p>
+  <p><b>Cô dâu:</b> Hoài Phương</p>
+  <p><b>Chú rể:</b> Hoàng Duy</p>
+</div>
+
+<!-- THỜI GIAN -->
+<div class="section fade">
+  <h2>Thời gian & Địa điểm</h2>
+  <p>⏰ 10h00 - 29/03/2026</p>
+  <p>📍 Thôn Giới Đức, Xã Ứng Hòa, Hà Nội</p>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="section fade">
+  <h2>Đếm ngược</h2>
+  <div class="countdown" id="countdown"></div>
+</div>
+
+<!-- ALBUM -->
+<div class="section fade">
+  <h2>Album ảnh cưới</h2>
+  <div class="album">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
+    <img src="https://images.unsplash.com/photo-1504198458649-3128b932f49b">
+    <img src="https://images.unsplash.com/photo-1529634893518-33e76c2a0c16">
   </div>
+</div>
 
-  <!-- Giới thiệu -->
-  <div class="section">
-    <h2>Trân trọng kính mời</h2>
-    <p>Tới tham dự lễ thành hôn của chúng tôi</p>
-    <p><b>Cô dâu:</b> Hoài Phương</p>
-    <p><b>Chú rể:</b> Hoàng Duy</p>
-  </div>
+<!-- MAP -->
+<div class="section fade">
+  <h2>Bản đồ</h2>
+  <iframe 
+    src="https://maps.google.com/maps?q=Ứng Hòa Hà Nội&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    width="100%" height="300" style="border:0;">
+  </iframe>
+</div>
 
-  <!-- Thời gian -->
-  <div class="section">
-    <h2>Thời gian & Địa điểm</h2>
-    <p>⏰ 10h00 - Ngày 29/03/2026</p>
-    <p>📍 Thôn Giới Đức, Xã Ứng Hòa, TP Hà Nội</p>
-  </div>
+<!-- RSVP -->
+<div class="section fade">
+  <h2>Xác nhận tham dự</h2>
+  <a class="btn" href="tel:0123456789">Gọi xác nhận</a>
+</div>
 
-  <!-- Đếm ngược -->
-  <div class="section">
-    <h2>Đếm ngược tới ngày cưới</h2>
-    <div class="countdown" id="countdown"></div>
-  </div>
+<!-- 🎵 NHẠC (FILE MP3 BẠN UP) -->
+<audio id="music" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Google Maps -->
-  <div class="section">
-    <h2>Bản đồ</h2>
-    <iframe src="https://maps.google.com/maps?q=Ứng Hòa Hà Nội&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-  </div>
+<!-- NÚT NHẠC -->
+<div class="music-btn" onclick="toggleMusic()">🎵</div>
 
-  <!-- Xác nhận tham dự -->
-  <div class="section">
-    <h2>Xác nhận tham dự</h2>
-    <p>Vui lòng báo lại để chúng tôi chuẩn bị chu đáo ❤️</p>
-    <a class="btn" href="#">Xác nhận</a>
-  </div>
+<script>
+// COUNTDOWN
+const targetDate = new Date("Mar 29, 2026 10:00:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const d = targetDate - now;
+  const days = Math.floor(d / (1000*60*60*24));
+  const hours = Math.floor((d % (1000*60*60*24))/(1000*60*60));
+  document.getElementById("countdown").innerHTML =
+    days + " ngày " + hours + " giờ";
+}, 1000);
 
-  <script>
-    const targetDate = new Date("Mar 29, 2026 10:00:00").getTime();
+// FADE SCROLL
+const faders = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
+  });
+});
 
-    const x = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+// CLICK ĐỂ PHÁT NHẠC
+document.addEventListener("click", function () {
+  const music = document.getElementById("music");
+  music.play();
+});
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-      document.getElementById("countdown").innerHTML =
-        days + " ngày " + hours + " giờ";
-
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "Đã diễn ra";
-      }
-    }, 1000);
-  </script>
+// NÚT BẬT/TẮT NHẠC
+function toggleMusic(){
+  const music = document.getElementById("music");
+  if(music.paused) music.play();
+  else music.pause();
+}
+</script>
 
 </body>
 </html>
